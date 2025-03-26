@@ -11,10 +11,19 @@ spec:
     metadata:
       labels:
         app: mon-app
+        env: production
+        team: devops
     spec:
       containers:
       - name: mon-app
         image: inraaa/mon-app-node:latest
         imagePullPolicy: Always
+        resources:
+        limits:
+          cpu: "0.5"
+          memory: "512Mi"
+        requests:
+          cpu: "0.2"
+          memory: "256Mi"
         ports:
         - containerPort: 3000
